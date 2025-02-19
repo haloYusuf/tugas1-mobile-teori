@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tugas1_mobile_teori/app/controllers/landing_controller.dart';
 
 class LandingPage extends StatelessWidget {
@@ -6,7 +7,7 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LandingController controller = LandingController();
+    LandingController controller = Get.put(LandingController());
 
     return Scaffold(
       backgroundColor: Color(0xFFD6E5F3),
@@ -46,6 +47,7 @@ class LandingPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: controller.handleClickButtonGetStarted,
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFD6E5F3),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
                       side: BorderSide(
