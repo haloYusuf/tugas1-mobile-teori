@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class KelompokController extends GetxController {
-  final RxList<Map<String, String>> teamMembers = <Map<String, String>>[
+  final teamMembers = <Map<String, String>>[
     {
       'nama': 'Diandra Yusuf A.',
       'nim': '123220031',
