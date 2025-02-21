@@ -16,86 +16,90 @@ class KelompokPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Get.back(),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.exit_to_app),
-            onPressed: () {},
+        title: Text(
+          'Informasi Kelompok',
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
           ),
-        ],
+        ),
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.exit_to_app),
+        //     onPressed: () {},
+        //   ),
+        // ],
       ),
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: const Color(0xFFB7CEE5),
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 100),
-                  const Text(
-                    'Tim Kami',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+      backgroundColor: const Color(0xFFB7CEE5),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Center(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Tim Kami',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                        const Text(
+                          'Tak kenal maka salken ia',
+                          style: TextStyle(fontSize: 16, color: Colors.black54),
+                        ),
+                        const SizedBox(height: 20),
+                        Obx(
+                          () => Column(
+                            spacing: 10,
+                            children: controller.teamMembers
+                                .map(
+                                  (member) => _teamMemberCard(
+                                    context: context,
+                                    nama: member['nama'].toString(),
+                                    nim: member['nim'].toString(),
+                                    imagePath: member['imagePath'].toString(),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ),
+                        const SizedBox(height: 40),
+                      ],
                     ),
-                  ),
-                  const Text(
-                    'Tak kenal maka salken ia',
-                    style: TextStyle(fontSize: 16, color: Colors.black54),
-                  ),
-                  const SizedBox(height: 20),
-                  Obx(() => Column(
-                        children: controller.teamMembers
-                            .map((member) => Column(
-                                  children: [
-                                    TeamMemberCard(
-                                      nama: member['nama'].toString(),
-                                      nim: member['nim'].toString(),
-                                      imagePath: member['imagePath'].toString(),
-                                    ),
-                                    const SizedBox(height: 10),
-                                  ],
-                                ))
-                            .toList(),
-                      )),
-                  const SizedBox(height: 40),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          const Positioned(
-            left: 16,
-            bottom: 16,
-            child: Text(
+            SizedBox(
+              height: 15,
+            ),
+            Text(
               '© 2025 Kelompok Stres',
               style: TextStyle(color: Colors.black54),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
-}
 
-class TeamMemberCard extends StatelessWidget {
-  final String nama;
-  final String nim;
-  final String imagePath;
-
-  const TeamMemberCard(
-      {super.key,
-      required this.nama,
-      required this.nim,
-      required this.imagePath});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
+  Widget _teamMemberCard({
+    required BuildContext context,
+    required String imagePath,
+    required String nama,
+    required String nim,
+  }) {
+    return ElevatedButton(
+      onPressed: () {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -114,68 +118,75 @@ class TeamMemberCard extends StatelessWidget {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(50),
-                  child: Image.network(imagePath,
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.person, size: 100)),
+                  child: Image.network(
+                    imagePath,
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Icons.person, size: 100),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 Text(
                   nama,
                   style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                Text(nim,
-                    style:
-                        const TextStyle(fontSize: 16, color: Colors.black54)),
-              ],
-            ),
-          ),
-        );
-      },
-      child: SizedBox(
-        width: double.infinity,
-        child: Card(
-          color: const Color(0xFFE1F0FF),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: Image.network(imagePath,
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.person, size: 50)),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        nama,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(nim,
-                          style: const TextStyle(
-                              fontSize: 14, color: Colors.black54)),
-                    ],
+                Text(
+                  nim,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.black54,
                   ),
                 ),
               ],
             ),
           ),
+        );
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFE1F0FF),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
         ),
+        padding: EdgeInsets.all(18),
+      ),
+      child: Row(
+        spacing: 12,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(50),
+            child: Image.network(
+              imagePath,
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.person, size: 50),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  nama,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  nim,
+                  style: const TextStyle(fontSize: 14, color: Colors.black54),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

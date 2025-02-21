@@ -14,11 +14,12 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Hitunk',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Poppins',
       ),
       initialRoute: RouteName.landing,
-      getPages: RoutePage.routes, //dashboard, home, login, profile
+      getPages: RoutePage.routes,
     );
   }
 }
