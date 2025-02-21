@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:tugas1_mobile_teori/app/pages/landing_page.dart';
 import 'package:tugas1_mobile_teori/app/pages/login_page.dart';
 import 'package:tugas1_mobile_teori/app/routes/route_name.dart';
+import 'package:tugas1_mobile_teori/app/pages/home_page.dart';
 
 class RoutePage {
   static List<GetPage<dynamic>> routes = [
@@ -12,6 +13,10 @@ class RoutePage {
     GetPage( //hitunk.com/login
       name: RouteName.login,
       page: () => const LoginPage(),
+    ),
+    GetPage(
+      name: RouteName.home,
+      page: () => const HomePage(),
     ),
   ];
 }

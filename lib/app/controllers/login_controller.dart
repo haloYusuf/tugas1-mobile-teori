@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tugas1_mobile_teori/app/routes/route_name.dart';
 
 class LoginController extends GetxController {
   var angka = 1.obs;
@@ -18,6 +19,10 @@ class LoginController extends GetxController {
     } else if (usernameController.text.toLowerCase() == 'mobile' &&
         passwordController.text.toLowerCase() == 'if-e') {
       _showDialog(title: 'Berhasil', message: 'Anda berhasil login!');
+      //ke homepage
+      Future.delayed(const Duration(seconds: 1), () {
+        Get.offAllNamed(RouteName.home); // Navigasi ke halaman home
+      });
     } else {
       _showDialog(title: 'Gagal', message: 'Username / password salah!');
     }
