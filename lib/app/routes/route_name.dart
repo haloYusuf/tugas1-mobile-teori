@@ -6,4 +6,5 @@ class RouteName {
   static String team = '/team';
   static String ganjilGenap = '/ganjil-genap';
   static String secretMenu = '/secret-menu';
+  static String kelompok = '/kelompok';
 }
