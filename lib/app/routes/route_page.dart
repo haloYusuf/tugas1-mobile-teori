@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tugas1_mobile_teori/app/pages/landing_page.dart';
 import 'package:tugas1_mobile_teori/app/pages/login_page.dart';
+import 'package:tugas1_mobile_teori/app/pages/kelompok_page.dart';
 import 'package:tugas1_mobile_teori/app/routes/route_name.dart';
 
 class RoutePage {
@@ -12,6 +13,10 @@ class RoutePage {
     GetPage( //hitunk.com/login
       name: RouteName.login,
       page: () => const LoginPage(),
+    ),
+    GetPage( //hitunk.com/login
+      name: RouteName.kelompok,
+      page: () => const KelompokPage(),
     ),
   ];
 }
