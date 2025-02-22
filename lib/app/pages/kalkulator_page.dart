@@ -167,14 +167,15 @@ class KalkulatorPage extends StatelessWidget {
                         ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF568DC3),
-                              padding: EdgeInsets.symmetric(
-                                vertical: 18,
-                                horizontal: 16,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              )),
+                            backgroundColor: Color(0xFF568DC3),
+                            padding: EdgeInsets.symmetric(
+                              vertical: 18,
+                              horizontal: 16,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
                           onPressed: controller.handleHitunk,
                           child: Text(
                             'Hitunk',

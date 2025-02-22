@@ -65,15 +65,15 @@ class KalkulatorController extends GetxController {
         title: 'Gagal',
         message: 'Pilih operasi terlebih dahulu!',
       );
-    } else if (inputNum1.value.isEmpty) {
+    } else if (inputNum1.value.isEmpty || inputNum1.value.isAlphabetOnly) {
       _showDialog(
         title: 'Gagal',
-        message: 'Angka pertama tidak boleh kosong!',
+        message: 'Angka pertama tidak boleh kosong / huruf!',
       );
-    } else if (inputNum2.value.isEmpty) {
+    } else if (inputNum2.value.isEmpty || inputNum2.value.isAlphabetOnly) {
       _showDialog(
         title: 'Gagal',
-        message: 'Angka kedua tidak boleh kosong!',
+        message: 'Angka kedua tidak boleh kosong / huruf!',
       );
     } else {
       double value1 = double.parse(inputNum1.value.replaceAll(',', '.'));
