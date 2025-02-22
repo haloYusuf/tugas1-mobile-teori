@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:tugas1_mobile_teori/app/pages/kalkulator_page.dart';
 import 'package:tugas1_mobile_teori/app/pages/landing_page.dart';
 import 'package:tugas1_mobile_teori/app/pages/login_page.dart';
 import 'package:tugas1_mobile_teori/app/pages/kelompok_page.dart';
@@ -8,12 +9,10 @@ import 'package:tugas1_mobile_teori/app/pages/home_page.dart';
 class RoutePage {
   static List<GetPage<dynamic>> routes = [
     GetPage(
-      //hitunk.com/landing
       name: RouteName.landing,
       page: () => const LandingPage(),
     ),
     GetPage(
-      //hitunk.com/login
       name: RouteName.login,
       page: () => const LoginPage(),
     ),
@@ -22,9 +21,12 @@ class RoutePage {
       page: () => const HomePage(),
     ),
     GetPage(
-      //hitunk.com/login
       name: RouteName.kelompok,
       page: () => const KelompokPage(),
+    ),
+    GetPage(
+      name: RouteName.kalkulator,
+      page: () => const KalkulatorPage(),
     ),
   ];
 }
