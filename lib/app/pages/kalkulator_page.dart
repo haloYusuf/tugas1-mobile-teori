@@ -96,12 +96,13 @@ class KalkulatorPage extends StatelessWidget {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           spacing: 20,
                           children: [
                             Expanded(
                               child: TextField(
                                 keyboardType: TextInputType.number,
+                                maxLength: 15,
                                 textInputAction: TextInputAction.next,
                                 style: TextStyle(
                                   color: Colors.black,
@@ -145,6 +146,7 @@ class KalkulatorPage extends StatelessWidget {
                               child: TextField(
                                 keyboardType: TextInputType.number,
                                 textInputAction: TextInputAction.done,
+                                maxLength: 15,
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
