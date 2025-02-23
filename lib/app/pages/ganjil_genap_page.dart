@@ -62,11 +62,13 @@ class GanjilGenapPage extends StatelessWidget {
                         ),
                         Row(
                           spacing: 20,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
                               child: TextField(
                                 keyboardType: TextInputType.number,
                                 textInputAction: TextInputAction.done,
+                                maxLength: 16,
                                 onChanged: (v) {
                                   controller.inputNumber.value = v;
                                 },
