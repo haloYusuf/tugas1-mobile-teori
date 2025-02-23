@@ -118,7 +118,7 @@ class KelompokPage extends StatelessWidget {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(50),
-                  child: Image.network(
+                  child: Image.asset(
                     imagePath,
                     width: 100,
                     height: 100,
@@ -159,7 +159,7 @@ class KelompokPage extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(50),
-            child: Image.network(
+            child: Image.asset(
               imagePath,
               width: 50,
               height: 50,

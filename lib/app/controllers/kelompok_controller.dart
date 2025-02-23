@@ -6,19 +6,19 @@ class KelompokController extends GetxController {
       'nama': 'Diandra Yusuf A.',
       'nim': '123220031',
       'imagePath':
-          'https://inaturalist-open-data.s3.amazonaws.com/photos/444006573/original.jpg',
+          'assets/images/yusuf.jpg',
     },
     {
       'nama': 'Salma Hanifa',
       'nim': '123220019',
       'imagePath':
-          'https://cdn11.bigcommerce.com/s-xf1j2e32mt/images/stencil/1280x1280/products/21333/32541/whitecatblueeyes__75584.1668481583.jpg?c=1',
+          'assets/images/salma.jpg',
     },
     {
       'nama': 'Erlltya Rachma A.',
       'nim': '123220008',
       'imagePath':
-          'https://media.4-paws.org/8/b/f/4/8bf45f56549cff7f705eb200f5ec5f6a9b335baf/VIER%20PFOTEN_2020-10-07_00138-1806x1804-720x719.jpg',
+          'assets/images/lita.jpg',
     },
   ].obs;
 
