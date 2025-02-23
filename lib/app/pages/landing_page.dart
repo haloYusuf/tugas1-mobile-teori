@@ -10,7 +10,7 @@ class LandingPage extends StatelessWidget {
     LandingController controller = Get.put(LandingController());
 
     return Scaffold(
-      backgroundColor: Color(0xFFD6E5F3),
+      backgroundColor: Color(0xFFB7CEE5),
       body: Center(
         child: ListView(
           shrinkWrap: true,
@@ -47,7 +47,7 @@ class LandingPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: controller.handleClickButtonGetStarted,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFD6E5F3),
+                    backgroundColor: Color(0xFFB7CEE5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
                       side: BorderSide(
